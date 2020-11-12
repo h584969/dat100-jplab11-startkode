@@ -4,35 +4,40 @@ import no.hvl.dat100.jplab11.common.TODO;
 
 public class Bilde extends Tekst {
 
-	// TODO - objekt variable
+	private String url;
 	
 	public Bilde(int id, String bruker, String dato, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
+		super(id,bruker,dato,tekst);
+		this.url = url;
 	}
 
 	public Bilde(int id, String bruker, String dato, int likes, String tekst, String url) {
-		throw new UnsupportedOperationException(TODO.constructor("Bilde"));
+		super(id, bruker, dato, likes, tekst);
+		this.url = url;
 	}
 	
 	public String getUrl() {
-		throw new UnsupportedOperationException(TODO.method());
-
+		
+		return url;
 	}
 
 	public void setUrl(String url) {
-		throw new UnsupportedOperationException(TODO.method());
+	
+		this.url = url;
 	}
 
 	@Override
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method ());
-
+		
+		String r = super.toString()+url+"\n";
+		r = r.replace(r.substring(0, r.indexOf("\n")), "BILDE");
+	
+		return r;
 	}
 
 	// Metoden nedenfor er kun for valgfri oppgave 6
 	public String toHTML() {
 		
-		throw new UnsupportedOperationException(TODO.method());
-				
+		return super.toHTML() + "<iframe src=\"" + this.getUrl()+"\" width=600 height=800></iframe>";		
 	}
 }
